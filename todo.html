@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Todolist</title>
+    <link href="./todo.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=delete" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=fact_check" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-img"></div>
+    <div class="header">
+        <h4>To-Do List</h4>
+        <span class="material-symbols-outlined"> fact_check </span>
+    </div>
+    <div class="input-container">
+        <input type="text" id="content" placeholder="Task to be done...">
+        <button onclick="add()">Add Task</button>
+    </div>
+    <center>
+        <div class="task">
+            <ul id="list-container">
+                <li>wake up at 5am
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKVJREFUSEvtlcsRgDAIRDedaCdaipVYiqVoKXaiMmNyIIObj7klN0V4C0xch8bHNa4PBpgAbAAGQ8gJYAFwWEIZYH+SBfJ1BDKWAq430RLC4nRErACLRwCfULv70LFuvTnAK6etqxbN74uX9zdAK2TPgZ/aAStYPaIOiO5V7kj6DuivqXpEjJANSDEaDRVXm/VL6yaLi60JbubrmdbJLJONhsabA25OJTgZ1vxrLQAAAABJRU5ErkJggg=="
+                        onclick="deleteitem(event)" width="20px" height="20px" />
+                </li>
+            </ul>
+    </center>
+    </div>
+    <script>
+        function add() {
+            if (document.getElementById("content").value.length == 0) {
+                alert("please enter a task");
+                return;
+            }
+            const input = document.getElementById("content");
+            var ul = document.getElementById("list-container");
+            var inputbox = document.getElementById("content").value;
+            var list = document.createElement("li");
+            list.innerHTML = inputbox + "<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKVJREFUSEvtlcsRgDAIRDedaCdaipVYiqVoKXaiMmNyIIObj7klN0V4C0xch8bHNa4PBpgAbAAGQ8gJYAFwWEIZYH+SBfJ1BDKWAq430RLC4nRErACLRwCfULv70LFuvTnAK6etqxbN74uX9zdAK2TPgZ/aAStYPaIOiO5V7kj6DuivqXpEjJANSDEaDRVXm/VL6yaLi60JbubrmdbJLJONhsabA25OJTgZ1vxrLQAAAABJRU5ErkJggg==' onclick='deleteitem(event)' width='20px' height='20px'/>";
+            ul.append(list);
+            input.value = "";
+        }
+        function deleteitem(event) {
+            event.target.parentElement.remove()
+        }
+    </script>
+</body>
+
+</html>
